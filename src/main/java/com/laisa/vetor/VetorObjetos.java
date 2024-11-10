@@ -1,13 +1,13 @@
 package com.laisa.vetor;
 
-public class Vetor {
+public class VetorObjetos {
 
-    private String[] elementos;
+    private Object[] elementos;
 
     private int tamanho;
 
-    public Vetor(int capacidade) {
-        this.elementos = new String[capacidade];
+    public VetorObjetos(int capacidade) {
+        this.elementos = new Object[capacidade];
         this.tamanho = 0;
     }
 
@@ -34,30 +34,10 @@ public class Vetor {
         return s.toString();
     }
 
-    // por default, o valor de uma string é null
+    public boolean adiciona(Object elemento) {
 
-   /* public void adiciona(String elemento) {
-        // iterar sobre as posições do vetor, se tiver nula x posição é nessa posição que vou add o elemento
-
-        //nao é otimizado, pois ele vai percorrer o vetor inteiro, mesmo que tenha um elemento nulo no meio, e se for um vetor grande? custoso
-
-       for (int i = 0; i < elementos.length; i++) {
-            if (this.elementos[i] == null) {
-                this.elementos[i] = elemento;
-                break;
-            }
-        } }*/
-
-
-    // é mais perfomatico considerar o tamanho do vetor em si
-
-    public boolean adiciona(String elemento) {
-
-<<<<<<< HEAD
-=======
         this.aumentaCapacidade();
 
->>>>>>> 3ec2cfa (remoção de um elemento em qualquer posição da lista)
         if (this.tamanho < this.elementos.length) {
 
             this.elementos[this.tamanho] = elemento;
@@ -74,18 +54,15 @@ public class Vetor {
     //overloading, sobrecarregando o metodo adiciona
 
 
-    public boolean adiciona(int posicao, String elemento) {
+    public boolean adiciona(int posicao, Object elemento) {
 
         // verificar se a posição que o usuário busca é válida
         if (!(posicao >= 0 && posicao < this.tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
         }
 
-<<<<<<< HEAD
-=======
         this.aumentaCapacidade();
 
->>>>>>> 3ec2cfa (remoção de um elemento em qualquer posição da lista)
         //mover todos os elementos
 
         for (int i = tamanho - 1; i >= posicao; i--) {
@@ -101,11 +78,9 @@ public class Vetor {
         return true;
     }
 
-<<<<<<< HEAD
-=======
     private void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
-            String [] elementosNovos = new String [this.elementos.length * 2]; //dobrando a capacidade]
+            Object [] elementosNovos = new Object[this.elementos.length * 2]; //dobrando a capacidade]
             for (int i = 0; i < this.elementos.length; i++) {
                 elementosNovos[i] = this.elementos[i];
             };
@@ -140,15 +115,14 @@ public class Vetor {
         return;
     }
 
->>>>>>> 3ec2cfa (remoção de um elemento em qualquer posição da lista)
-    public String busca(int posicao) {
+    public Object busca(int posicao) {
         if (!(posicao >= 0 && posicao < this.tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
         }
         return this.elementos[posicao];
     }
 
-    public int busca(String elemento) {
+    public int busca(Object elemento) {
         // busca sequencial: ir de em posição em posição até encontrar o elemento, return true ou algo do tipo
 
         for (int i = 0; i < this.tamanho; i++) {
